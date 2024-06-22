@@ -5,7 +5,12 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecentlyUsedListKata", "RecentlyUsedList\RecentlyUsedListKata.csproj", "{617E4C97-A574-4DD8-966B-F3378E4FCDC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecentlyUsedListTests", "RecentlyUsedListTests\RecentlyUsedListTests.csproj", "{FE465E3A-FB97-4551-A009-693EB51CE94F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecentlyUsedListTests", "RecentlyUsedListTests\RecentlyUsedListTests.csproj", "{FE465E3A-FB97-4551-A009-693EB51CE94F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{68379E07-5090-491F-AFD3-A03EA202DF5D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -16,7 +16,25 @@ namespace RecentlyUsedListTests
             }
 
             [Fact]
-            public void Add_ShouldAddItemToList()
+            public void NewListWithCapacityBound_ShouldBeEmpty()
+            {
+                var stack = new UniqueStringsStack(true);
+                Assert.Equal(0, stack.Length);
+            }
+
+
+            [Fact]
+            public void Length_ShouldReturnCorrectStackLength()
+            {
+                var stack = new UniqueStringsStack();
+                stack.Add("item1");
+                stack.Add("item2");
+                stack.Add("item3");
+                Assert.Equal(3, stack.Length);
+            }
+
+            [Fact]
+            public void Add_ShouldAddItemToStack()
             {
                 var stack = new UniqueStringsStack();
                 stack.Add("item1");
@@ -24,29 +42,36 @@ namespace RecentlyUsedListTests
             }
 
             [Fact]
-            public void Add_ShouldNotAddDuplicateItemToList()
+            public void Add_ShouldNotAddDuplicateItemToStack()
             {
                 var stack = new UniqueStringsStack();
                 stack.Add("item1");
                 stack.Add("item1");
-                Assert.Single(stack);
+                Assert.Equal(1, stack.Length);
             }
 
             [Fact]
-            public void Add_ShouldMoveDuplicateItemToTheEndOfList()
+            public void Add_ShouldMoveDuplicateItemToTheStackBeginning()
             {
                 var stack = new UniqueStringsStack();
                 stack.Add("item1");
                 stack.Add("item2");
                 stack.Add("item1");
-                Assert.Equal("item1", stack.ElementAt(stack.Length - 1));
+                Assert.Equal("item1", stack.ElementAt(1));
             }
 
             [Fact]
             public void Add_ShouldNotAllowNullInsertion()
             {
                 var stack = new UniqueStringsStack();
-                Assert.Throws<ArgumentException>(() => stack.Add(null));
+                Assert.Throws<ArgumentNullException>(() => stack.Add(null));
+            }
+
+            [Fact]
+            public void Add_ShouldNotAllowEmptyStringInsertion()
+            {
+                var stack = new UniqueStringsStack();
+                Assert.Throws<ArgumentException>(() => stack.Add(""));
             }
 
             [Fact]
@@ -58,6 +83,16 @@ namespace RecentlyUsedListTests
                 stack.Add("item3");
                 Assert.Equal(2, stack.Length);
                 Assert.Equal("item2", stack.ElementAt(0));
+            }
+
+            [Fact]
+            public void ElementAt_ShouldReturnElementAtCorrectIndex()
+            {
+                var stack = new UniqueStringsStack();
+                stack.Add("item1");
+                stack.Add("item2");
+                stack.Add("item3");
+                Assert.Equal("item2", stack.ElementAt(1));
             }
 
             [Fact]
